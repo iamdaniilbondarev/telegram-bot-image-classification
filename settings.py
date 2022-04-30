@@ -1,8 +1,8 @@
 import json
 
 # top secret, not for distribution
-BOT_TOKEN = '5375646413:AAGI-xKBST6YJQyHKCfk6HIc7to05JmpquQ'
-DEVELOPER_CHAT_ID = "675176359"
+BOT_TOKEN = 'token'
+DEVELOPER_CHAT_ID = "id"
 
 LABELS_PATH = './labels_map.json'
 MODEL_NAME = 'efficientnet-b0'
