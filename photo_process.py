@@ -9,7 +9,8 @@ from settings import (
 )
 
 
-def photo_classifier(img) -> list[str]:
+def photo_classifier(img) -> str:
+    """Make model prediction"""
     trfms = transforms.Compose([
         transforms.Resize(IMAGE_SIZE),
         transforms.CenterCrop(IMAGE_SIZE),
@@ -23,12 +24,7 @@ def photo_classifier(img) -> list[str]:
 
     model = EfficientNet.from_pretrained(MODEL_NAME).eval()
     with torch.no_grad():
-        logits = model(img)
+        model_response = model(img)
 
-    predictions = torch.topk(logits, k=3).indices.squeeze(dim=0).tolist()
-    top_answers = []
-    for idx in predictions:
-        label = LABELS_MAP[idx]
-        prob = torch.softmax(logits, dim=1)[0, idx].item()
-        top_answers.append('{:<75} ({:.2f}%)'.format(label, prob * 100))
-    return top_answers
+    top_idx = torch.argmax(model_response).item()
+    return LABELS_MAP[top_idx]
