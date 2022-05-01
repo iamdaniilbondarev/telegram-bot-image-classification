@@ -1,0 +1,7 @@
+Pillow==9.1.0
+efficientnet_pytorch==0.7.1
+numpy==1.22.3
+python-telegram-bot==13.11
+requests==2.27.1
+torch==1.11.0
+torchvision==0.12.0
