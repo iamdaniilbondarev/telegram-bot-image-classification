@@ -19,7 +19,7 @@ from settings import BOT_TOKEN
 
 def help_command(update: Update, _: CallbackContext) -> None:
     """Send a message when the command /help is issued."""
-    update.message.reply_text('Send a photo or link to a photo!')
+    update.message.reply_text('Send a photo or a link to photo!')
 
 
 def get_data_from_link(update: Update, _: CallbackContext) -> None:
