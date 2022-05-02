@@ -8,6 +8,8 @@ from settings import (
     MODEL_NAME,
 )
 
+EFFICIENT_NET = EfficientNet.from_pretrained(MODEL_NAME).eval()
+
 
 def photo_classifier(img) -> str:
     """Make model prediction"""
@@ -22,9 +24,8 @@ def photo_classifier(img) -> str:
     ])
     img = trfms(img).unsqueeze(dim=0)
 
-    model = EfficientNet.from_pretrained(MODEL_NAME).eval()
     with torch.no_grad():
-        model_response = model(img)
+        model_response = EFFICIENT_NET(img)
 
     top_idx = torch.argmax(model_response).item()
     return LABELS_MAP[top_idx]
