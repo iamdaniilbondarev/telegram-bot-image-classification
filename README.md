@@ -6,8 +6,8 @@
 
 Для запуска бота необходимо в директории проекта выполнить команды в терминале и подождать пока установятся библиотеки:
 ```
-docker build -t review2 .  
-docker run -d review2
+docker build -t telegram-bot-image .  
+docker run --name telegram-bot-container -d telegram-bot-image
 ```
 
 Ссылка на бота:

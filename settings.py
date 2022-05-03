@@ -1,7 +1,7 @@
 import json
 
 BASE_WIKI_URL = 'https://en.wikipedia.org/wiki/'
-BOT_TOKEN = '5375646413:AAGI-xKBST6YJQyHKCfk6HIc7to05JmpquQ'
+BOT_TOKEN = 'token'
 LABELS_PATH = './labels_map.json'
 MODEL_NAME = 'efficientnet-b0'
 IMAGE_SIZE = 224
