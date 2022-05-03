@@ -19,13 +19,14 @@ from settings import BOT_TOKEN
 
 def help_command(update: Update, _: CallbackContext) -> None:
     """Send a message when the command /help is issued."""
-    update.message.reply_text('Send a photo or a link to photo!')
+    update.message.reply_text('Send a photo or a link to jpg or png photo!')
 
 
 def get_data_from_link(update: Update, _: CallbackContext) -> None:
     """Reply to url to image"""
     photo_url = update.message.text
-    if validators.url(photo_url):
+    suffix = photo_url.split('.')[-1]
+    if validators.url(photo_url) and (suffix == 'jpg' or suffix == 'png'):
         response = requests.get(photo_url, stream=True)
         img = Image.open(response.raw)
         top_model_label = photo_classifier(img)
