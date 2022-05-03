@@ -2,8 +2,8 @@
 
 Для запуска бота необходимо в директории проекта выполнить команды в терминале и подождать пока установятся библиотеки:
 ```
-$ docker build -t review2 .  
-$ docker run -d review2
+docker build -t review2 .  
+docker run -d review2
 ```
 
 Ссылка на бота:
